@@ -1,0 +1,100 @@
+
+//Mixins
+@mixin hover-color{
+    &:hover{
+        color: $hover-color;
+    }
+
+}
+@mixin section-padding{
+    padding-left: 9%;
+    padding-right: 9%;
+    width: 100%;
+    @include mediaQuery(576px){
+        padding-left: 2%;
+        padding-right: 2%;
+    }
+    @include mediaQuery(768px, 577px){
+        padding-left: 2%;
+        padding-right: 2%;
+    }
+    @include mediaQuery(1024px, 769px){
+        padding-left: 2%;
+        padding-right: 3%;
+    }
+}
+@mixin progressBarPadding{
+    padding: 4%;
+    @include mediaQuery(576px){
+        padding: 2%;
+    }
+    @include mediaQuery(768px, 577px){
+        padding: 2%;
+    }
+}
+@mixin progressBarMovement{
+    display: flex;
+    position: relative;
+    bottom: 100px;
+    @include mediaQuery(576px){
+        bottom: 10px;
+    }
+    @include mediaQuery(768px, 577px){
+        bottom: 30px;
+        margin-top: 15px;
+    }
+}
+@mixin widthHeight-100{
+    width: 100%;
+    height: 100%;
+}
+@mixin h3-featutes{
+    font-size: 25px;
+    color: $hover-color;
+    font-family: 'oswaldregular';
+    font-weight: 500;
+}
+@mixin orangeLine{
+    width: 120px;
+    height: 2px;
+    background-color: $hover-color;
+    margin-left: 2%;
+}
+@mixin color-white{
+    color: white;
+}
+@mixin footerMQmargin{
+    @include mediaQuery(576px){
+        margin-left: 0%;
+    } 
+    @include mediaQuery(768px, 577px){
+        margin-left: 0%;
+    }
+}
+
+@mixin mediaQuery($breakpiont...){
+     @if length($breakpiont) == 1 {
+         @media (max-width: nth($breakpiont, 1)){
+             @content;
+         }
+     }
+     @if length($breakpiont) == 2 {
+         @media (max-width: nth($breakpiont, 1)) and (min-width: nth($breakpiont, 2)){
+             @content;
+         }
+     }
+}
+
+// MEDIAQUERY-FORMAT
+// @include mediaQuery(576px){
+
+// )
+
+
+
+/* MEDIUM DEVICES (TABLETS,IPADS less than 992px) */
+// @media(min-width: 577px) and (max-width: 768px){
+
+
+/* TABLETS,IPADS (potrait and landscape less than 1025px) */
+// @media( min-width: 769px) and (max-width:1024px){
